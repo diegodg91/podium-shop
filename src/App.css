@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+/*Mi css*/
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+
+
+.header{
+  width: 100%;
+  height: auto;
+  background-color: black;
+  color: white;
+}
+
+.nav__menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  
+}
+.nav__items li {
+ display: inline-block;
+ padding: 1rem;
+}
+.nav__items-cart a{
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: yellow;
+}
