@@ -71,3 +71,12 @@ a{
   text-transform: uppercase;
   color: yellow;
 }
+
+.cart-badge{
+  background: red;
+  width: auto;
+  height: auto;
+  border: 1px solid transparent;
+  border-radius: 99px;
+  color:white
+}
