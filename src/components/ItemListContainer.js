@@ -1,17 +1,38 @@
-import ItemCount from "./ItemCount";
+import React,{useState, useEffect} from "react"
+import ItemList from "./ItemList"
+import { getData } from "../mocks/ProductosApi"
 const ItemListContainer = ({greeting}) => {
+
+  const [productos, setProductos] = useState([])
+  const [load, setLoad] = useState([false])
+
+  useEffect(()=>{
+    setLoad(true)
+    getData
+    .then((res)=>setProductos(res))
+    .catch((error) => console.log(error))
+    .finally(()=> setLoad(false))
+}, [])
+
     return(
-        <main className="px-4 mx-auto mt-10 max-w-7xl sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-        <div className="sm:text-center lg:text-left">
-          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block xl:inline">Suplementos</span>
-            <span className="block text-indigo-600 xl:inline">Deportivos</span>
-          </h1>
-          <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">{greeting}</p>
-         
+        <>
+        <div className="container mx-auto">
+        <h3 className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">{greeting}</h3>
         </div>
-        <ItemCount />
-      </main>
+        
+
+        <div>
+            {load ? 
+            <div className="container flex justify-center mx-auto mt-5">
+            <div className="rounded-full w-28 h-28 outline-dashed outline-4 outline-indigo-500 animate-spin"></div>
+            </div>
+             : 
+             <ItemList productos ={productos}/>}
+        </div>
+        </>
+          
+         
+       
     )
 }
 
