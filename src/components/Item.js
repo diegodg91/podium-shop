@@ -14,9 +14,9 @@ const Item = ( {producto} ) => {
               </div>
 
                 <div className="p-4 mb-4 ">
-                <a href="b" class="bg-indigo-500 text-center rounded-full font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-indigo-600">
+                <button class="bg-indigo-500 text-center rounded-full font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-indigo-600">
                 Comprar
-                </a>
+                </button>
                 </div>
               </div> 
 

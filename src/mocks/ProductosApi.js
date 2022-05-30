@@ -1,4 +1,4 @@
-const productos = [
+export const productos = [
     {   
         id:1,
         image:"img/gu1.jpg",
@@ -54,3 +54,17 @@ export const getData = new Promise((resolve, reject) =>{
         }
     },3000)
 })
+
+export const getItem = new Promise((res, rej) =>{
+    let condition = true
+
+    setTimeout(()=>{
+        if(condition){
+            res(productos[0])
+        }else{
+            rej('error')
+        }
+    },2000)
+})
+
+
