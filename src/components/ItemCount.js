@@ -21,12 +21,14 @@ const ItemCount = () => {
         <>
         <div className="container mx-auto">
         <div className="flex flex-row justify-between p-6 mt-4 text-center border-2 border-gray-400 border-solid w-72">
-            <button onClick={add} type="button" className="w-10 h-10 text-lg font-bold text-white bg-green-600 rounded-full">+</button>
+            <button onClick={add} type="button" className="w-10 h-10 text-lg font-bold text-white bg-gray-400 rounded-full">+</button>
             <p className="text-lg font-bold text-center text-gray-600 basis-1/2">Cantidad: {cantidad}</p>
-            <button onClick={quit} type="button" className="w-10 h-10 text-lg font-bold text-white bg-red-600 rounded-full">-</button>
+            <button onClick={quit} type="button" className="w-10 h-10 text-lg font-bold text-white bg-gray-400 rounded-full">-</button>
         </div>
           <div className="flex flex-row justify-between mt-4">
-          <button onClick={onAdd} type="button" className="p-3 font-semibold text-center text-white bg-gray-600 text-md">Agregar al carrito</button>
+          <button onClick={onAdd} type="button" className="px-4 py-3 font-bold text-center text-white transition duration-300 ease-in-out bg-indigo-500 rounded-full hover:bg-indigo-600">
+           Agregar</button>
+        
           </div>
         </div>
             
