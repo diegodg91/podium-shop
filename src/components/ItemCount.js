@@ -27,7 +27,7 @@ const ItemCount = () => {
         </div>
           <div className="flex flex-row justify-between mt-4">
           <button onClick={onAdd} type="button" className="px-4 py-3 font-bold text-center text-white transition duration-300 ease-in-out bg-indigo-500 rounded-full hover:bg-indigo-600">
-           Agregar</button>
+           Agregar Producto</button>
         
           </div>
         </div>

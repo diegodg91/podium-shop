@@ -1,6 +1,9 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 const Item = ( {producto} ) => {
+  
   const {image, tipo , nombre, precio} = producto
+  const navegar = useNavigate();
     return (
        
           <div className="flex flex-col justify-center mx-auto bg-white shadow-xl w-72 rounded-2xl shadow-slate-300/60">
@@ -14,8 +17,9 @@ const Item = ( {producto} ) => {
               </div>
 
                 <div className="p-4 mb-4 ">
-                <button class="bg-indigo-500 text-center rounded-full font-bold text-white px-4 py-3 transition duration-300 ease-in-out hover:bg-indigo-600">
-                Comprar
+                <button className="px-4 py-3 font-bold text-center text-white transition duration-300 ease-in-out bg-indigo-500 rounded-full hover:bg-indigo-600"
+                onClick={()=>navegar(`/detalle/${producto.id}`)}>
+                Ver Mas
                 </button>
                 </div>
               </div> 

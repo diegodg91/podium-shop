@@ -1,4 +1,5 @@
-
+import React from "react";
+import { Link } from "react-router-dom";
 import Cartwidget from "./Cartwidget";
 
 
@@ -13,7 +14,7 @@ const Navbar = () => {
 
                 {/* <!-- logo brand --> */}
                 <div className="flex items-center flex-shrink-0">
-                <img src="/img/logo.svg" alt="podium-logo"/> 
+                <Link to='/'><img src="/img/logo.svg" alt="podium-logo"/> </Link>
                 </div>
                 {/* <!-- logo brand --> */}
 
@@ -21,15 +22,26 @@ const Navbar = () => {
                 {/* <!-- ITEMS MENU --> */}
                 <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
+                        <ul className="flex">
+                        <li>
+                        <Link className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white" to='/productos'>Productos</Link>
+                            </li>
+                            <li>
+                            <a href="0"
+                            className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Endurance</a>  
+                            </li>
+                            <li>
+                            <a href="1"
+                            className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Recovery</a>
+                            </li>
+                            <li>
+                            <a href="2"
+                            className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Hidratacion</a>
+                            </li>
+                            
+                        </ul>
 
-                        <a href="0"
-                            className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Productos</a>
-
-                        <a href="1"
-                            className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">FAQ</a>
-
-                        <a href="2"
-                            className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Contacto</a>
+                        
                     </div>
                 </div>
                 {/* <!-- ITEMS MENU --> */}
