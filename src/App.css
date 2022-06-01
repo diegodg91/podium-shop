@@ -80,3 +80,15 @@ a{
   border-radius: 99px;
   color:white
 }
+.home{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../public/img/back.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}

@@ -1,18 +1,26 @@
 import React,{useState, useEffect} from "react"
 import ItemList from "./ItemList"
 import { getData } from "../mocks/ProductosApi"
+import { useParams } from "react-router-dom"
 const ItemListContainer = ({greeting}) => {
 
   const [productos, setProductos] = useState([])
   const [load, setLoad] = useState([false])
+  const {tipo} = useParams()
 
   useEffect(()=>{
     setLoad(true)
     getData
-    .then((res)=>setProductos(res))
+    .then((res)=>{
+        if(!tipo){
+            setProductos(res) 
+        }else{
+            setProductos((res)=> res.filter((prod) => prod.tipo === tipo))
+        }
+    })
     .catch((error) => console.log(error))
     .finally(()=> setLoad(false))
-}, [])
+}, [tipo])
 
     return(
         <>

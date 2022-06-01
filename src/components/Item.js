@@ -2,7 +2,7 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 const Item = ( {producto} ) => {
   
-  const {image, tipo , nombre, precio} = producto
+  const {image, tipo , nombre, precio,} = producto
   const navegar = useNavigate();
     return (
        

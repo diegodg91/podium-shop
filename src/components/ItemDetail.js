@@ -3,7 +3,7 @@ import ItemCount from "./ItemCount"
 import { useNavigate } from "react-router-dom"
 
 const ItemDetail = ({detail}) => {
-   const {id,image, nombre, precio} = detail
+   const {id,image, nombre, precio, stock} = detail
    const volver = useNavigate()
     return(
         
@@ -22,7 +22,7 @@ const ItemDetail = ({detail}) => {
                     a caramelo se derrite en tu boca, para complementarse con la proporción justa de sal, como para
                     lograr un resultado interesante. Con la misma consistencia que el caramelo, no te vamos a juzgar si
                     lo usas para agregarlo en tu próximo helado.</p>
-                <ItemCount/>
+                <ItemCount stock={stock}/>
                 <button onClick={()=>volver('/productos')} type="button" className="px-2 py-3 text-sm font-medium text-gray-600 uppercase transition duration-300 ease-in-out hover:text-indigo-300">Volver</button>
             </div>
         </>

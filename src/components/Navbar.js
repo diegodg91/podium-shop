@@ -1,9 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Cartwidget from "./Cartwidget";
+import { Link } from "react-router-dom";
+
 
 
 const Navbar = () => {
+
+ 
     return(
         //  <!-- NAV MENU -->
     <nav className="bg-gray-800">
@@ -22,24 +25,20 @@ const Navbar = () => {
                 {/* <!-- ITEMS MENU --> */}
                 <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
-                        <ul className="flex">
                         <li>
                         <Link className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white" to='/productos'>Productos</Link>
                             </li>
                             <li>
-                            <a href="0"
-                            className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Endurance</a>  
+                            <Link className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white" to='/categoria/recovery'>Recovery</Link>
                             </li>
                             <li>
-                            <a href="1"
-                            className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Recovery</a>
+                            <Link className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white" to='/categoria/endurance'>Endurance</Link>
                             </li>
                             <li>
-                            <a href="2"
-                            className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white">Hidratacion</a>
+                            <Link className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white" to='/categoria/hidratacion'>Hidratacion</Link>
                             </li>
                             
-                        </ul>
+
 
                         
                     </div>
