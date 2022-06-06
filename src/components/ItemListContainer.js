@@ -15,7 +15,7 @@ const ItemListContainer = ({greeting}) => {
         if(!tipo){
             setProductos(res) 
         }else{
-            setProductos((res)=> res.filter((prod) => prod.tipo === tipo))
+            setProductos(res.filter((prod) => prod.tipo === tipo))
         }
     })
     .catch((error) => console.log(error))

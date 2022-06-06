@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {Toaster} from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer';
@@ -22,7 +23,7 @@ const App = () => {
       
     </Routes>
 
-
+    <Toaster/>
     </BrowserRouter>
   );
 }

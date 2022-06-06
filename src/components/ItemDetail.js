@@ -3,17 +3,21 @@ import ItemCount from "./ItemCount"
 import LinkToCart from "./LinkToCart"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast"
 
 const ItemDetail = ({detail}) => {  
 
    const {image, nombre, precio, stock} = detail
 
-   const {cantidad, setCantidad} = useState(0)
+   const [cantidad, setCantidad] = useState(0);
+
+   const [compra, setCompra] = useState(false)
 
    const onAdd = () => {
-    alert(`${cantidad} productos añadidos`);
-    setCantidad()
-   }
+    setCompra(true);
+    toast.success(`¡${cantidad} Productos Agregados!`);
+    
+}
 
    const volver = useNavigate()
     return(
@@ -35,8 +39,8 @@ const ItemDetail = ({detail}) => {
                     lo usas para agregarlo en tu próximo helado.</p>
                 
                  {
-                     cantidad === 0
-                     ? <ItemCount stock={stock} initial={cantidad} onAdd={onAdd} />
+                    !compra
+                     ? <ItemCount stock={stock} cantidad={cantidad} setCantidad={setCantidad} onAdd={onAdd} />
                      : <LinkToCart/>
                  }
                 
