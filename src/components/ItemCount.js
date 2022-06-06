@@ -2,7 +2,7 @@ import { useState } from "react";
     
 const ItemCount = ({stock}) => {
 
-    const [cantidad, setCantidad] = useState(0);
+      const [cantidad, setCantidad] = useState(0);
           
       const add = () => {
         
@@ -14,7 +14,8 @@ const ItemCount = ({stock}) => {
         };
 
         const onAdd = () => {
-            cantidad > 0 ? alert(`${cantidad} productos añadidos`) : alert('no hay productos añadidos')
+            cantidad > 0 ? alert(`${cantidad} productos añadidos`) : alert('no hay productos añadidos');
+            setCantidad()
         }
 
     return(

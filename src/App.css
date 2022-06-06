@@ -54,23 +54,13 @@ a{
   color: white;
 }
 
-.nav__menu{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  
+ .submenu li{
+  display: none;
 }
-.nav__items li {
- display: inline-block;
- padding: 1rem;
-}
-.nav__items-cart a{
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: yellow;
-}
+
+.menu li:hover .submenu > li{
+  display: block;
+} 
 
 .cart-badge{
   background: red;

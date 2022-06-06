@@ -40,7 +40,7 @@ export const productos = [
         stock: 10
     },
     {
-        id:6,
+        id:'6',
         image:"/img/sportdrink.png",
         tipo: 'endurance',
         nombre: "Hydromax",

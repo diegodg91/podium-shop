@@ -1,5 +1,6 @@
 import React from "react";
 import Cartwidget from "./Cartwidget";
+import '../App.css';
 import { Link } from "react-router-dom";
 
 
@@ -25,18 +26,23 @@ const Navbar = () => {
                 {/* <!-- ITEMS MENU --> */}
                 <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
-                        <li>
-                        <Link className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white" to='/productos'>Productos</Link>
+                    <ul className="flex menu">
+                        <li className="relative">
+                        <Link className="px-2 py-2 text-sm font-medium text-gray-300 uppercase rounded-md" to='/productos'>Productos</Link>
+                            <ul className="absolute w-40 bg-gray-800 rounded-sm submenu">
+                                <li className="px-2 py-4">
+                                <Link className="w-full p-2 text-sm font-medium text-gray-300 rounded-md hover:text-white" to='/categoria/recovery'>Recovery</Link>
+                                </li>
+                                <li className="px-2 py-4">
+                                <Link className="p-2 text-sm font-medium text-gray-300 rounded-md hover:text-white" to='/categoria/endurance'>Endurance</Link>
+                                </li>
+                                <li className="px-2 py-4">
+                                <Link className="p-2 text-sm font-medium text-gray-300 rounded-md hover:text-white" to='/categoria/hidratacion'>Hidratacion</Link>
+                                </li>
+                            </ul>
                             </li>
-                            <li>
-                            <Link className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white" to='/categoria/recovery'>Recovery</Link>
-                            </li>
-                            <li>
-                            <Link className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white" to='/categoria/endurance'>Endurance</Link>
-                            </li>
-                            <li>
-                            <Link className="px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white" to='/categoria/hidratacion'>Hidratacion</Link>
-                            </li>
+                            
+                    </ul>
                             
 
 
