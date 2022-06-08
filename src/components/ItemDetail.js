@@ -1,22 +1,26 @@
-import React from "react"
 import ItemCount from "./ItemCount"
 import LinkToCart from "./LinkToCart"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
+import { useState} from "react"
+import { useNavigate } from "react-router-dom"
+import { CartContext } from "./CartContext"
+import React, { useContext } from "react"
 
 const ItemDetail = ({detail}) => {  
 
    const {image, nombre, precio, stock} = detail
 
-   const [cantidad, setCantidad] = useState(0);
+   const [cantidad, setCantidad] = useState([]);
 
    const [compra, setCompra] = useState(false)
 
+//    CONTEXT
+    const {addToCart} = useContext(CartContext)
+
    const onAdd = () => {
     setCompra(true);
-    toast.success(`¡${cantidad} Productos Agregados!`);
-    
+    toast.success(`¡${cantidad} Productos Agregados!`)
+    addToCart(detail, cantidad);
 }
 
    const volver = useNavigate()

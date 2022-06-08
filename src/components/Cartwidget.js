@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Badge from "./Badge"
 const Cartwidget = () => {
+    
+    const toCart= useNavigate()
     return (
-        <button type="button"
+        <button onClick={()=>toCart('/cart')} type="button"
                     className="relative p-2 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <div>
                         <Badge cantidad={4}/>

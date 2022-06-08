@@ -1,7 +1,7 @@
 const Badge = ( {cantidad} ) => {
 return (
-    <div className="absolute top-0 right-0 px-3 py-1 -mt-3 -mr-3 bg-red-500 rounded-full">
-        <span>{cantidad} </span>
+    <div className="absolute px-2 -mt-2 -mr-2 bg-indigo-500 rounded-full right-2 top-1 hover:bg-indigo-300">
+        <span className="text-sm font-bold text-white">{cantidad}</span>
     </div>
 )
 }
