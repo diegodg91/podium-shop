@@ -10,7 +10,7 @@ const ItemDetail = ({detail}) => {
 
    const {image, nombre, precio, stock} = detail
 
-   const [cantidad, setCantidad] = useState([]);
+   const [cantidad, setCantidad] = useState(1);
 
    const [compra, setCompra] = useState(false)
 

@@ -1,20 +1,25 @@
-import { useState } from "react";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import ItemInCart from "./ItemInCart";
+import { useNavigate } from "react-router-dom";
 
 
 const Cart = () => {
-const [total] = useState(0);
 
-const render = useContext(CartContext)
-const clearP = useContext(CartContext)
+
+const {cartList, totalCart} = useContext(CartContext)
+const back = useNavigate()
 
     return(
         <>
             
         <div className="container mx-auto">
-      
+        {!cartList.length ?
+        <div>
+        <p className="font-semibold text-center uppercase text-slate-700">carrito vacio</p>
+        <button onClick={()=>back('/productos')} type="button" className="px-2 py-3 text-sm font-medium text-gray-600 uppercase transition duration-300 ease-in-out hover:text-indigo-300">Ir a productos</button>
+        </div>
+        :
             <div className="flex justify-center h-screen gap-4 rounded-lg">
                 <div className="w-full p-4">
                 <h1 className="text-2xl font-bold uppercase text-slate-800">carrito</h1>
@@ -31,26 +36,22 @@ const clearP = useContext(CartContext)
                
                         <tbody>
                         {
-                            render.cartList.length === 0 ? <p className="font-semibold text-center uppercase text-slate-700">carrito vacio</p>
-                            :render.cartList.map((ele) => 
-                            <ItemInCart key={ele.id} nombre={ele.nombre} image={ele.image} precio={ele.precio} cantidad={ele.cantidad}/>)
                             
-                        }
+                            cartList.map((ele) => 
+                            <ItemInCart key={ele.id} nombre={ele.nombre} image={ele.image} precio={ele.precio} cantidad={ele.cantidad} id={ele.id} />)
                             
-                            
-                            
-                            
+                        } 
                         </tbody>
                 </table>
                         
-                        <div className="flex justify-between w-full gap-10 p-10 mt-6 bg-indigo-100 rounded">
-                            <p className="text-3xl font-bold uppercase text-slate-600">Total:{total}</p>
-                            <button onClick={clearP} type="button" className="w-64 font-bold text-white bg-red-400 rounded-full hover:bg-red-600">vaciar carrito</button>
+                        <div className="flex justify-between w-full gap-10 p-10 mt-6 bg-indigo-100 rounded shadow-lg">
+                            <p className="text-2xl font-bold uppercase text-slate-600">Monto Total: ${totalCart()}</p>
+                            <button type="button" className="w-64 font-bold text-white bg-green-400 rounded-full hover:bg-green-600">Finalizar Compra</button>
                         </div>
                 </div>
-            </div>
+            </div>}
         </div>
-        {/* <button onClick={clearP} type="button" className="w-64 p-2 font-semibold uppercase bg-red-400 rounded">borrar</button> */}
+        
         </>
     );
 }

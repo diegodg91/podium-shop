@@ -25,7 +25,7 @@ export const CartContext = createContext();
         }
 
         const removeItem = (id) => {
-            const result = cartList.filter(ele => ele.id !== parseInt(id))
+            const result = cartList.filter(ele => ele.id !== (id))
             setCartList(result)
         }
 
@@ -36,9 +36,16 @@ export const CartContext = createContext();
 
         const isInCart = (product) => getProductId(product.id) ? true : false 
 
+        const quantityCart = () =>{
+            return cartList.reduce((acc, prod)=> acc += prod.cantidad,0)
+        }
+
+        const totalCart = () => {
+            return cartList.reduce((acc, prod)=>acc += prod.cantidad * prod.precio, 0)
+        }
 
     return (
-        <CartContext.Provider value={{cartList, addToCart, removeItem, clearP, isInCart}}>
+        <CartContext.Provider value={{cartList, addToCart, removeItem, clearP, isInCart, total, quantityCart, totalCart}}>
           {children}
         </CartContext.Provider>
     );

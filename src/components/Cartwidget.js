@@ -7,7 +7,7 @@ const Cartwidget = () => {
         <button onClick={()=>toCart('/cart')} type="button"
                     className="relative p-2 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                     <div>
-                        <Badge cantidad={4}/>
+                        <Badge/>
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" viewBox="0 0 26 26"
                             fill="currentColor">
                             <path
