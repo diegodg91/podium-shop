@@ -1,26 +1,25 @@
 import React,{useState, useEffect} from "react"
-import ItemList from "./ItemList"
-import { getData } from "../mocks/ProductosApi"
+import ItemList from "./ItemList" 
 import { useParams } from "react-router-dom"
+
+import { firestoreFetch } from "../utils/firestoreFetch";
+
 const ItemListContainer = ({greeting}) => {
 
   const [productos, setProductos] = useState([])
   const [load, setLoad] = useState([false])
   const {tipo} = useParams()
 
-  useEffect(()=>{
+
+
+  useEffect(() => {
     setLoad(true)
-    getData
-    .then((res)=>{
-        if(!tipo){
-            setProductos(res) 
-        }else{
-            setProductos(res.filter((prod) => prod.tipo === tipo))
-        }
-    })
-    .catch((error) => console.log(error))
-    .finally(()=> setLoad(false))
-}, [tipo])
+    firestoreFetch()
+        .then((res)=>{!tipo ? setProductos(res) : setProductos(res.filter((prod) => prod.tipo === tipo))})
+        .catch(error => console.log(error))
+        .finally(()=> setLoad(false))
+}, [tipo]);
+
 
     return(
         <>

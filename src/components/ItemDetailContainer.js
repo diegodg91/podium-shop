@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from "react"
-import { getData } from "../mocks/ProductosApi"
 import ItemDetail from "./ItemDetail"
 import { useParams } from "react-router-dom"
+import { firestoreFetchOne } from "../utils/firestoreFetch";
 
 const ItemDetailContainer = () => {
 
@@ -11,8 +11,9 @@ const ItemDetailContainer = () => {
   
     useEffect(()=>{
       setLoad(true)
-      getData
-      .then((res) => setDetail(res.find((ele) => ele.id === id)))
+      firestoreFetchOne(id)
+    //   .then((res) => setDetail(res.find((ele) => ele.id === idItem)))
+      .then((res) => setDetail(res))
       .catch((error) => console.log(error))
       .finally(()=> setLoad(false))
   },[id])

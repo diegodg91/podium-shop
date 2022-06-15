@@ -8,7 +8,7 @@ import React, { useContext } from "react"
 
 const ItemDetail = ({detail}) => {  
 
-   const {image, nombre, precio, stock} = detail
+   const {id, image, nombre, precio, stock, descripcion} = detail
 
    const [cantidad, setCantidad] = useState(1);
 
@@ -36,15 +36,11 @@ const ItemDetail = ({detail}) => {
             <div className="col-span-8 p-4">
                 <h3 className="text-4xl font-bold text-indigo-600 uppercase">{nombre}</h3>
                 <h5 className="text-2xl font-bold uppercase text-slate-600">${precio}</h5>
-                <p className="mt-4 leading-relaxed">Si hay un sabor perfecto para un gel, es el Salted Caramel. El dulce e
-                    indulgente sabor
-                    a caramelo se derrite en tu boca, para complementarse con la proporción justa de sal, como para
-                    lograr un resultado interesante. Con la misma consistencia que el caramelo, no te vamos a juzgar si
-                    lo usas para agregarlo en tu próximo helado.</p>
+                <p className="mt-4 leading-relaxed">{descripcion}</p>
                 
                  {
                     !compra
-                     ? <ItemCount stock={stock} cantidad={cantidad} setCantidad={setCantidad} onAdd={onAdd} />
+                     ? <ItemCount idItem={id} stock={stock} cantidad={cantidad} setCantidad={setCantidad} onAdd={onAdd} />
                      : <LinkToCart/>
                  }
                 
