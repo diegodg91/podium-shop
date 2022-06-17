@@ -1,4 +1,6 @@
 import {createContext, useState} from "react";
+import toast from "react-hot-toast"
+
 
 export const CartContext = createContext();
 
@@ -27,6 +29,7 @@ export const CartContext = createContext();
         const removeItem = (id) => {
             const result = cartList.filter(ele => ele.id !== (id))
             setCartList(result)
+            toast.error('producto eliminado del carrito')
         }
 
         const clearCart = () => {
