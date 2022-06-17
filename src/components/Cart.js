@@ -2,13 +2,61 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import ItemInCart from "./ItemInCart";
 import { useNavigate } from "react-router-dom";
+import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
+import db from "../utils/firebaseConfig";
+
 
 
 const Cart = () => {
 
 
-const {cartList, totalCart} = useContext(CartContext)
-const back = useNavigate()
+const {cartList, totalCart, clearCart} = useContext(CartContext);
+const back = useNavigate();
+
+const createOrder = () => {
+    const itemsFromDB = cartList.map(item =>({
+        
+        id: item.id,
+        nombre: item.nombre,
+        precio: item.precio,
+        cantidad: item.cantidad
+
+    }))
+
+   let orden = {
+    buyer:{
+        email: "user@react.com",
+        name: "user name",
+        phone: "3597112569"
+    },
+    date: serverTimestamp(),
+    total: totalCart(),
+    items: itemsFromDB
+   };
+   console.log(orden)
+
+   const createOrderInFirestore = async () => {
+    const newOrderRef = doc(collection(db, "ordenes"));
+    await setDoc(newOrderRef, orden);
+    return newOrderRef;
+   }
+
+   createOrderInFirestore()
+    .then(res => alert('Su orden es '+ res.id))
+    .catch(error => console.log(error))
+
+    cartList.forEach(async (item) => {
+        const itemRef = doc(db, "productos", item.id);
+        await updateDoc(itemRef, {
+            // stock: stock - item.cantidad
+            stock: increment(-item.cantidad) //funcion de FIREBASE
+        })
+    })
+    
+    clearCart();
+}
+
+
 
     return(
         <>
@@ -46,7 +94,7 @@ const back = useNavigate()
                         
                         <div className="flex justify-between w-full gap-10 p-10 mt-6 bg-indigo-100 rounded shadow-lg">
                             <p className="text-2xl font-bold uppercase text-slate-600">Monto Total: ${totalCart()}</p>
-                            <button type="button" className="w-64 font-bold text-white bg-green-400 rounded-full hover:bg-green-600">Finalizar Compra</button>
+                            <button onClick={createOrder} type="button" className="w-64 font-bold text-white bg-green-400 rounded-full hover:bg-green-600">Finalizar Compra</button>
                         </div>
                 </div>
             </div>}

@@ -35,8 +35,10 @@ const ItemDetail = ({detail}) => {
 
             <div className="col-span-8 p-4">
                 <h3 className="text-4xl font-bold text-indigo-600 uppercase">{nombre}</h3>
-                <h5 className="text-2xl font-bold uppercase text-slate-600">${precio}</h5>
+                <h5 className="mt-2 text-3xl font-bold uppercase text-slate-600">${precio}</h5>
                 <p className="mt-4 leading-relaxed">{descripcion}</p>
+                <p className="mt-4 text-lg font-semibold text-green-500 uppercase">stock disponible: <span className="text-xl font-bold text-slate-400">{stock} unidades</span></p>
+                
                 
                  {
                     !compra

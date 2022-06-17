@@ -29,7 +29,7 @@ export const CartContext = createContext();
             setCartList(result)
         }
 
-        const clearP = () => {
+        const clearCart = () => {
             setCartList([]);
             setTotal([])
         }
@@ -45,7 +45,7 @@ export const CartContext = createContext();
         }
 
     return (
-        <CartContext.Provider value={{cartList, addToCart, removeItem, clearP, isInCart, total, quantityCart, totalCart}}>
+        <CartContext.Provider value={{cartList, addToCart, removeItem, clearCart, isInCart, total, quantityCart, totalCart}}>
           {children}
         </CartContext.Provider>
     );
