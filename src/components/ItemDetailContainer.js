@@ -12,7 +12,6 @@ const ItemDetailContainer = () => {
     useEffect(()=>{
       setLoad(true)
       firestoreFetchOne(id)
-    //   .then((res) => setDetail(res.find((ele) => ele.id === idItem)))
       .then((res) => setDetail(res))
       .catch((error) => console.log(error))
       .finally(()=> setLoad(false))

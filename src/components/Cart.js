@@ -48,8 +48,8 @@ const createOrder = () => {
     cartList.forEach(async (item) => {
         const itemRef = doc(db, "productos", item.id);
         await updateDoc(itemRef, {
-            // stock: stock - item.cantidad
-            stock: increment(-item.cantidad) //funcion de FIREBASE
+         
+            stock: increment(-item.cantidad) 
         })
     })
     
