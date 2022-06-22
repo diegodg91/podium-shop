@@ -2,8 +2,6 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import ItemInCart from "./ItemInCart";
 import { useNavigate } from "react-router-dom";
-import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
-import db from "../utils/firebaseConfig";
 
 
 
@@ -13,7 +11,7 @@ const Cart = () => {
 const {cartList, totalCart, clearCart} = useContext(CartContext);
 const back = useNavigate();
 
-const createOrder = () => {
+/* const createOrder = () => {
     const itemsFromDB = cartList.map(item =>({
         
         id: item.id,
@@ -55,7 +53,7 @@ const createOrder = () => {
     
     clearCart();
 }
-
+ */
 
 
     return(
@@ -95,7 +93,7 @@ const createOrder = () => {
                         <div className="flex justify-between w-full gap-10 p-10 mt-6 bg-indigo-100 rounded shadow-lg">
                             <p className="text-2xl font-bold uppercase text-slate-600">Monto Total: ${totalCart()}</p>
                             <button onClick={clearCart} className="w-auto p-4 font-bold text-white rounded-full bg-slate-500 hover:bg-slate-400">Vaciar carrito</button>
-                            <button onClick={createOrder} type="button" className="w-64 font-bold text-white bg-green-400 rounded-full hover:bg-green-600">Finalizar Compra</button>
+                            <button onClick={()=>back('/checkout')} type="button" className="w-64 font-bold text-white bg-green-400 rounded-full hover:bg-green-600">Finalizar Compra</button>
                         </div>
                 </div>
             </div>}
